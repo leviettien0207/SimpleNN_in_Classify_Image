@@ -8,6 +8,7 @@ from data_kaggle_api_download import download_dataset
 from tensorflow.keras.preprocessing.image import load_img
 
 """
+Bước 1:
 Tải dữ liệu (nếu sử dụng API kaggle để tải)
 (đối với trường hợp muốn sử dụng dữ liệu mới, git có dữ liệu mẫu sử dụng rồi)
 """
@@ -15,17 +16,18 @@ Tải dữ liệu (nếu sử dụng API kaggle để tải)
 # download_dataset()
 
 """
+Bước 2:
 Phân chia tập dữ liệu training, validation (nếu chưa được chưa)
 (đối với trường hợp muốn sử dụng dữ liệu mới, git có dữ liệu mẫu sử dụng rồi)
 """
 # # Tạo folder train và validation, và các folder đánh số từ 0 -> 9 bên trong
 # try:
 #     print('start create folders and subfolders')
-#     directory_helper.create_train_val_dirs(root_path=config.ROOT_DIR)
+#     directory_helper.create_train_val_dirs(root_path=config.DIRECTORY.ROOT_DIR)
 #     print('end create folders and subfolders')
 # except FileExistsError:
 #     print("You should not be seeing this since the upper directory is removed beforehand")
-#
+
 # # Copy ảnh từ thư mục dataset gốc vào các đường dẫn
 # print('start copy images')
 # split_data(constant.ZERO_SOURCE_DIR, constant.TRAINING_ZERO_SOURCE_DIR, constant.VALIDATION_ZERO_SOURCE_DIR, config.SPLIT_SIZE)
@@ -39,7 +41,7 @@ Phân chia tập dữ liệu training, validation (nếu chưa được ch�
 # split_data(constant.EIGHT_SOURCE_DIR, constant.TRAINING_EIGHT_SOURCE_DIR, constant.VALIDATION_EIGHT_SOURCE_DIR, config.SPLIT_SIZE)
 # split_data(constant.NINE_SOURCE_DIR, constant.TRAINING_NINE_SOURCE_DIR, constant.VALIDATION_NINE_SOURCE_DIR, config.SPLIT_SIZE)
 # print('end copy images')
-
+#
 # # Test thử cái ảnh xem sao
 # print("Sample image:")
 # plt.imshow(load_img(f"{os.path.join(constant.ONE_SOURCE_DIR, os.listdir(constant.ONE_SOURCE_DIR)[5])}"))
@@ -47,6 +49,7 @@ Phân chia tập dữ liệu training, validation (nếu chưa được ch�
 # # Ảnh sẽ bị đen xì
 
 """
+Bước 3
 Đẩy tập dữ liệu training, validation lên memory(xem readme để biết cấu trúc dataset cần như thế nào)
 """
 
@@ -54,6 +57,7 @@ train_generator, validation_generator = train_val_generators(config.DIRECTORY.TR
                                                              config.DIRECTORY.VALIDATION_DIR)
 
 """
+Bước 4
 Get the untrained model
 """
 # Get the untrained model
@@ -68,6 +72,7 @@ history = model.fit(train_generator,
                     callbacks=[callbacks])
 
 """
+Bước 5
 Plot đồ thị accuracy và loss
 """
 # Plot the chart for accuracy and loss on both training and validation
