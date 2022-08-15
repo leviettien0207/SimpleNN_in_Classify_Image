@@ -1,4 +1,5 @@
 # SimpleNN_in_Classify_Image
+![image](https://user-images.githubusercontent.com/96035211/184624807-649cbcdd-7d7f-4f23-aa22-2f1aad445bcb.png)
 
 VỀ DỮ LIỆU<br>
 Một trong những nguồn dữ liệu (dataset) lớn nhất là kaggle.com.<br>
