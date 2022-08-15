@@ -53,3 +53,4 @@ Tham khảo activation function: https://www.mygreatlearning.com/blog/activation
 
 chạy command line <br>
 cd SimpleNN_in_Classify_Image
+py app.py
