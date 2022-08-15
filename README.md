@@ -1,6 +1,16 @@
 # SimpleNN_in_Classify_Image
 ![image](https://user-images.githubusercontent.com/96035211/184624807-649cbcdd-7d7f-4f23-aa22-2f1aad445bcb.png)
 
+Những thông số chúng ta sửa sẽ liên quan tới ảnh trên:
+- số hidden layer (sau layer Flatten trong code và trước layer Dense 10 cuối cùng trong code): <br>
+   + số neuron (1 hình tròn là 1 neuron ở như ở hình minh họa trên)
+   + activation function: để khử tuyến tính, chứ nếu giá trị cứ qua một layer gấp 10 lên thì tới layer 15 là model quá tải
+- Trong ảnh là các neuron đang được kết nối hoàn toàn (một neuron được nối từ toàn bộ neuron của layer trước), điều này dấn tới khả năng neuron học lỏm của nhau đưa ra giá trị tương đồng -> mất hiệu quả. Sử dụng layers.dropout(số lượng kết nối sẽ bị mất) <br>
+
+Lưu ý:
+- tf.keras.model.sequential([]) params là một list, và các layer sẽ được tạo ra theo list
+- Các layers trước Flatten() ở trong code chính là các tấm lọc của mạng tích chập (Convolutional Neural Network), phần này khó hơn một tí, cần đánh giá dataset hiệu quả để có các filter tấm lọc hiệu quả
+
 VỀ DỮ LIỆU<br>
 Một trong những nguồn dữ liệu (dataset) lớn nhất là kaggle.com.<br>
 Trên kaggle.com có rất nhiều dữ liệu đa dạng và kaggle có hỗ trợ api, command để lấy dữ liệu thay vì tải về.<br>
